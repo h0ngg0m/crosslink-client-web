@@ -1,15 +1,105 @@
 <template>
-  <GoogleLogin :callback="callback" />
+  <div class="d-flex flex-column pt-10 pb-10">
+    <div class="d-flex mb-10">
+      <div class="flex-1-1-100">
+        <v-card variant="plain">
+          <v-card-title>대회 소식</v-card-title>
+          <v-divider />
+          <v-list>
+            <v-list-item>
+              <v-list-item-title>대회 소식 1</v-list-item-title>
+            </v-list-item>
+            <v-list-item>
+              <v-list-item-title>대회 소식 2</v-list-item-title>
+            </v-list-item>
+            <v-list-item>
+              <v-list-item-title>대회 소식 3</v-list-item-title>
+            </v-list-item>
+            <v-list-item>
+              <v-list-item-title>대회 소식 4</v-list-item-title>
+            </v-list-item>
+            <v-list-item>
+              <v-list-item-title>대회 소식 5</v-list-item-title>
+            </v-list-item>
+          </v-list>
+        </v-card>
+      </div>
+      <div class="flex-1-1-100">
+        <v-card variant="plain">
+          <v-card-title>드랍인 해요</v-card-title>
+          <v-divider />
+          <v-list>
+            <v-list-item>
+              <v-list-item-title>드랍인 해요 1</v-list-item-title>
+            </v-list-item>
+            <v-list-item>
+              <v-list-item-title>드랍인 해요 2</v-list-item-title>
+            </v-list-item>
+            <v-list-item>
+              <v-list-item-title>드랍인 해요 3</v-list-item-title>
+            </v-list-item>
+            <v-list-item>
+              <v-list-item-title>드랍인 해요 4</v-list-item-title>
+            </v-list-item>
+            <v-list-item>
+              <v-list-item-title>드랍인 해요 5</v-list-item-title>
+            </v-list-item>
+          </v-list>
+        </v-card>
+      </div>
+    </div>
+    <div class="d-flex">
+      <div class="flex-1-1-100">
+        <v-card variant="plain">
+          <v-card-title>{{ `${myBox} 게시글` }}</v-card-title>
+          <v-divider />
+          <v-list>
+            <v-list-item>
+              <v-list-item-title>게시글 1</v-list-item-title>
+            </v-list-item>
+            <v-list-item>
+              <v-list-item-title>게시글 2</v-list-item-title>
+            </v-list-item>
+            <v-list-item>
+              <v-list-item-title>게시글 3</v-list-item-title>
+            </v-list-item>
+            <v-list-item>
+              <v-list-item-title>게시글 4</v-list-item-title>
+            </v-list-item>
+            <v-list-item>
+              <v-list-item-title>게시글 5</v-list-item-title>
+            </v-list-item>
+          </v-list>
+        </v-card>
+      </div>
+      <div class="flex-1-1-100">
+        <v-card variant="plain">
+          <v-card-title>모든 게시글</v-card-title>
+          <v-divider />
+          <v-list>
+            <v-list-item>
+              <v-list-item-title>게시글 1</v-list-item-title>
+            </v-list-item>
+            <v-list-item>
+              <v-list-item-title>게시글 2</v-list-item-title>
+            </v-list-item>
+            <v-list-item>
+              <v-list-item-title>게시글 3</v-list-item-title>
+            </v-list-item>
+            <v-list-item>
+              <v-list-item-title>게시글 4</v-list-item-title>
+            </v-list-item>
+            <v-list-item>
+              <v-list-item-title>게시글 5</v-list-item-title>
+            </v-list-item>
+          </v-list>
+        </v-card>
+      </div>
+    </div>
+  </div>
 </template>
-
 <script setup lang="ts">
-import { GoogleLogin } from 'vue3-google-login'
-import { postApi } from '@/utils/api'
+import { ref } from 'vue'
 
-async function callback(result) {
-  const response = await postApi('/api/v1/auth/login/google', {
-    credential: result.credential
-  })
-  console.log(response)
-}
+const myBox = ref('얼티밋 트레이닝')
 </script>
