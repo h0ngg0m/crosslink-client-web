@@ -1,11 +1,5 @@
 import axios from 'axios'
 import { routerPush } from '@/utils/common'
-import type { JWTToken } from '@/definitions/type'
-
-export function saveTokens(jwt: JWTToken): void {
-  localStorage.setItem('accessToken', jwt.accessToken)
-  localStorage.setItem('refreshToken', jwt.refreshToken)
-}
 
 export function removeTokens(): void {
   localStorage.removeItem('accessToken')
