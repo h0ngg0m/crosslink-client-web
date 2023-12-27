@@ -1,5 +1,8 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import HomeView from '../views/HomeView.vue'
+import HomeView from '@/views/HomeView.vue'
+import LoginView from '@/views/auth/LoginView.vue'
+import NaverCallback from '@/views/auth/NaverCallback.vue'
+import GoogleCallback from '@/views/auth/GoogleCallback.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -9,6 +12,18 @@ const router = createRouter({
       name: 'home',
       component: HomeView
     },
+    {
+      path: '/auth/login',
+      component: LoginView
+    },
+    {
+      path: '/auth/login/naver/callback',
+      component: NaverCallback
+    },
+    {
+      path: '/auth/login/google/callback',
+      component: GoogleCallback
+    }
   ]
 })
 

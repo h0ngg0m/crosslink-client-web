@@ -3,19 +3,19 @@
     <v-app-bar flat color="primary">
       <v-app-bar-title text="CrossLink"></v-app-bar-title>
       <template #append>
-        <v-tooltip v-if="login" text="마이 페이지" location="bottom">
+        <v-tooltip v-if="loginFlag" text="마이 페이지" location="bottom">
           <template #activator="{ props }">
             <v-btn v-bind="props" icon="mdi-account"></v-btn>
           </template>
         </v-tooltip>
-        <v-tooltip v-if="login" text="로그아웃" location="bottom">
+        <v-tooltip v-if="loginFlag" text="로그아웃" location="bottom">
           <template #activator="{ props }">
-            <v-btn v-bind="props" icon="mdi-logout"></v-btn>
+            <v-btn v-bind="props" icon="mdi-logout" @click="logout"></v-btn>
           </template>
         </v-tooltip>
         <v-tooltip v-else text="로그인" location="bottom">
           <template #activator="{ props }">
-            <v-btn v-bind="props" icon="mdi-login"></v-btn>
+            <v-btn v-bind="props" icon="mdi-login" @click="routerPush('/auth/login')"></v-btn>
           </template>
         </v-tooltip>
       </template>
@@ -33,7 +33,11 @@
   </v-layout>
 </template>
 <script setup lang="ts">
-import { ref } from 'vue'
+import { useUserStore } from '@/stores/user'
+import { storeToRefs } from 'pinia'
+import { routerPush } from '@/utils/common'
 
-const login = ref(true)
+const userStore = useUserStore()
+const { logout } = userStore
+const { loginFlag } = storeToRefs(userStore)
 </script>
