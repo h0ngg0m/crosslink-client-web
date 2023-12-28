@@ -2,8 +2,10 @@
   <v-layout>
     <v-app-bar flat color="primary">
       <template #prepend>
-        <span class="ml-2 pointer text-h6">🏋CrossLink</span>️
-        <v-btn variant="text" class="ml-10">전체 박스 목록</v-btn>
+        <span class="ml-2 pointer text-h6" @click="routerPush('/')">🏋CrossLink</span>️
+        <v-btn variant="text" class="ml-10" @click="resetTabAndPush('/boxes')"
+          >전체 박스 목록</v-btn
+        >
       </template>
       <template #append>
         <v-tooltip v-if="loginFlag" text="마이 페이지" location="bottom">
@@ -16,15 +18,25 @@
       </template>
     </v-app-bar>
 
-    <v-navigation-drawer border="none"> </v-navigation-drawer>
+    <v-navigation-drawer> </v-navigation-drawer>
 
     <v-navigation-drawer location="right" border="none"> </v-navigation-drawer>
 
     <v-main>
-      <v-tabs v-model="tab">
-        <v-tab value="ALL">전체</v-tab>
+      <v-tabs v-model="tab" align-tabs="center">
+        <v-tab value="ALL">공통</v-tab>
         <v-tab value="ULTIMATE">ULTIMATE</v-tab>
-        <v-btn color="primary" icon="mdi-plus-thick" variant="plain" @click="addBox"></v-btn>
+        <v-tooltip text="관심있는 박스를 추가하세요!" location="right">
+          <template #activator="{ props }">
+            <v-btn
+              v-bind="props"
+              color="primary"
+              icon="mdi-plus-thick"
+              variant="plain"
+              @click="addBox"
+            ></v-btn>
+          </template>
+        </v-tooltip>
       </v-tabs>
       <slot />
     </v-main>
@@ -45,6 +57,10 @@ const tab = ref<null | string>(null)
 
 provide('tab', tab)
 
+async function resetTabAndPush(path: string): Promise<void> {
+  tab.value = null
+  await routerPush(path)
+}
 function addBox() {
   alert('TODO: addBox') // TODO
 }
