@@ -3,6 +3,7 @@ import HomeView from '@/views/home/HomeView.vue'
 import LoginView from '@/views/auth/LoginView.vue'
 import NaverCallback from '@/views/auth/NaverCallback.vue'
 import GoogleCallback from '@/views/auth/GoogleCallback.vue'
+import BoxList from '@/views/box/BoxListView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -26,6 +27,10 @@ const router = createRouter({
     {
       path: '/auth/login/google/callback',
       component: GoogleCallback
+    },
+    {
+      path: '/boxes',
+      component: BoxList
     }
   ]
 })
