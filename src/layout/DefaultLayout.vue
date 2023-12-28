@@ -26,7 +26,11 @@
     <v-navigation-drawer location="right" border="none"> </v-navigation-drawer>
 
     <v-main>
-      <slot />
+      <v-tabs v-model="tab">
+        <v-tab value="ALL">전체</v-tab>
+        <v-btn color="primary" icon="mdi-plus-thick" variant="plain" @click="addBox"></v-btn>
+      </v-tabs>
+      <slot :tab="tab" />
     </v-main>
 
     <v-footer app name="footer">FOOTER</v-footer>
@@ -36,8 +40,15 @@
 import { useUserStore } from '@/stores/user'
 import { storeToRefs } from 'pinia'
 import { routerPush } from '@/utils/common'
+import { ref } from 'vue'
 
 const userStore = useUserStore()
 const { logout } = userStore
 const { loginFlag } = storeToRefs(userStore)
+
+function addBox() {
+  alert('TODO: addBox') // TODO
+}
+
+const tab = ref<null | string>(null)
 </script>
