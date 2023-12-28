@@ -51,29 +51,6 @@
     <div class="d-flex">
       <div class="flex-1-1-100">
         <v-card variant="plain">
-          <v-card-title>{{ `${myBox} 게시글` }}</v-card-title>
-          <v-divider />
-          <v-list>
-            <v-list-item>
-              <v-list-item-title>게시글 1</v-list-item-title>
-            </v-list-item>
-            <v-list-item>
-              <v-list-item-title>게시글 2</v-list-item-title>
-            </v-list-item>
-            <v-list-item>
-              <v-list-item-title>게시글 3</v-list-item-title>
-            </v-list-item>
-            <v-list-item>
-              <v-list-item-title>게시글 4</v-list-item-title>
-            </v-list-item>
-            <v-list-item>
-              <v-list-item-title>게시글 5</v-list-item-title>
-            </v-list-item>
-          </v-list>
-        </v-card>
-      </div>
-      <div class="flex-1-1-100">
-        <v-card variant="plain">
           <v-card-title>모든 게시글</v-card-title>
           <v-divider />
           <v-list>
@@ -98,8 +75,3 @@
     </div>
   </div>
 </template>
-<script setup lang="ts">
-import { ref } from 'vue'
-
-const myBox = ref('얼티밋 트레이닝')
-</script>
