@@ -21,6 +21,11 @@ export const useUserStore = defineStore(
       await routerPush('/')
     }
 
+    async function getUserInfo(): Promise<void> {
+      // TODO: get user info
+      // 1. 본인 박스 정보
+    }
+
     return { accessToken, loginFlag, saveAccessToken, logout }
   },
   { persist: true }
