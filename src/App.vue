@@ -1,9 +1,7 @@
 <template>
   <v-app>
     <component :is="currentLayout" v-if="isRouterLoaded">
-      <template #default="props">
-        <RouterView :tab="props.tab" />
-      </template>
+      <RouterView />
     </component>
   </v-app>
 </template>
@@ -22,6 +20,7 @@ const layouts = {
   auth: AuthLayout,
   error: ErrorLayout
 }
+
 const isRouterLoaded = computed((): boolean => route.name !== null)
 const currentLayout = computed(() => layouts[route.meta?.layout || 'default'])
 </script>
