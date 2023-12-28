@@ -1,23 +1,18 @@
 <template>
   <v-layout>
     <v-app-bar flat color="primary">
-      <v-app-bar-title text="CrossLink"></v-app-bar-title>
+      <template #prepend>
+        <span class="ml-2 pointer text-h6">🏋CrossLink</span>️
+        <v-btn variant="text" class="ml-10">전체 박스 목록</v-btn>
+      </template>
       <template #append>
         <v-tooltip v-if="loginFlag" text="마이 페이지" location="bottom">
           <template #activator="{ props }">
             <v-btn v-bind="props" icon="mdi-account"></v-btn>
           </template>
         </v-tooltip>
-        <v-tooltip v-if="loginFlag" text="로그아웃" location="bottom">
-          <template #activator="{ props }">
-            <v-btn v-bind="props" icon="mdi-logout" @click="logout"></v-btn>
-          </template>
-        </v-tooltip>
-        <v-tooltip v-else text="로그인" location="bottom">
-          <template #activator="{ props }">
-            <v-btn v-bind="props" icon="mdi-login" @click="routerPush('/auth/login')"></v-btn>
-          </template>
-        </v-tooltip>
+        <v-btn v-if="loginFlag" @click="logout">로그아웃</v-btn>
+        <v-btn v-else @click="routerPush('/auth/login')">로그인</v-btn>
       </template>
     </v-app-bar>
 
@@ -41,7 +36,7 @@
 import { useUserStore } from '@/stores/user'
 import { storeToRefs } from 'pinia'
 import { routerPush } from '@/utils/common'
-import { provide, ref, watch } from 'vue'
+import { provide, ref } from 'vue'
 
 const userStore = useUserStore()
 const { logout } = userStore

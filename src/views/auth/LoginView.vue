@@ -1,17 +1,17 @@
 <template>
   <div>
     <v-img
+      class="pointer"
       src="/src/assets/images/google/web_light_sq_na@4x.png"
       :width="100"
-      style="cursor: pointer"
       @click="googleLogin"
     />
   </div>
   <div>
     <v-img
+      class="pointer"
       src="/src/assets/images/naver/btnG_아이콘사각.png"
       :width="100"
-      style="cursor: pointer"
       @click="naverLogin"
     />
   </div>
