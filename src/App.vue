@@ -1,7 +1,9 @@
 <template>
   <v-app>
     <component :is="currentLayout" v-if="isRouterLoaded">
-      <RouterView />
+      <template #default="props">
+        <RouterView :tab="props.tab" />
+      </template>
     </component>
   </v-app>
 </template>

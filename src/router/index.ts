@@ -1,5 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import HomeView from '@/views/HomeView.vue'
+import HomeView from '@/views/home/HomeView.vue'
 import LoginView from '@/views/auth/LoginView.vue'
 import NaverCallback from '@/views/auth/NaverCallback.vue'
 import GoogleCallback from '@/views/auth/GoogleCallback.vue'
