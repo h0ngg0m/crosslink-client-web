@@ -14,7 +14,10 @@ const router = createRouter({
     },
     {
       path: '/auth/login',
-      component: LoginView
+      component: LoginView,
+      meta: {
+        layout: 'auth'
+      }
     },
     {
       path: '/auth/login/naver/callback',

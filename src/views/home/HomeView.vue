@@ -7,16 +7,8 @@
   </v-window>
 </template>
 <script setup lang="ts">
-import { useVModel } from '@vueuse/core'
 import CommonTabContent from '@/views/home/CommonTabContent.vue'
+import { inject } from 'vue'
 
-const props = defineProps<{
-  tab: string | null
-}>()
-
-const emits = defineEmits<{
-  (e: 'update:tab', v: string | null): void
-}>()
-
-const tab = useVModel(props, 'tab', emits)
+const tab = inject<null | string>('tab', null)
 </script>

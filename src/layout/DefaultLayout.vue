@@ -28,9 +28,10 @@
     <v-main>
       <v-tabs v-model="tab">
         <v-tab value="ALL">전체</v-tab>
+        <v-tab value="ULTIMATE">ULTIMATE</v-tab>
         <v-btn color="primary" icon="mdi-plus-thick" variant="plain" @click="addBox"></v-btn>
       </v-tabs>
-      <slot :tab="tab" />
+      <slot />
     </v-main>
 
     <v-footer app name="footer">FOOTER</v-footer>
@@ -40,15 +41,16 @@
 import { useUserStore } from '@/stores/user'
 import { storeToRefs } from 'pinia'
 import { routerPush } from '@/utils/common'
-import { ref } from 'vue'
+import { provide, ref, watch } from 'vue'
 
 const userStore = useUserStore()
 const { logout } = userStore
 const { loginFlag } = storeToRefs(userStore)
+const tab = ref<null | string>(null)
+
+provide('tab', tab)
 
 function addBox() {
   alert('TODO: addBox') // TODO
 }
-
-const tab = ref<null | string>(null)
 </script>
