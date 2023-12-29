@@ -15,7 +15,7 @@ import 'element-plus/dist/index.css'
 import piniaPluginPersistedstate from 'pinia-plugin-persistedstate'
 
 import ElementPlus from 'element-plus'
-import ElementTiptapPlugin from 'element-tiptap'
+import ElementTiptapPlugin from 'element-tiptap-vue3-fixed'
 
 const pinia = createPinia()
 pinia.use(piniaPluginPersistedstate)

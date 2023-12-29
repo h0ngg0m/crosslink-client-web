@@ -1,13 +1,12 @@
 <template>
-  <el-tiptap v-model:content="content" :extensions="extensions" output="json" height="500px" />
+  <el-tiptap :content="content" :extensions="extensions" output="json" height="500px" />
 </template>
 
 <script setup>
 import { ref } from 'vue'
-import { lowlight } from 'lowlight'
 
 import {
-  Document,
+  Doc,
   Text,
   Paragraph,
   Heading,
@@ -18,7 +17,6 @@ import {
   TextAlign,
   Image,
   Iframe,
-  CodeBlock,
   Strike,
   Table,
   Color,
@@ -29,11 +27,10 @@ import {
   Link,
   BulletList,
   OrderedList
-} from 'element-tiptap'
-import { CodeBlockLowlight } from '@tiptap/extension-code-block-lowlight'
+} from 'element-tiptap-vue3-fixed'
 
 const extensions = [
-  Document,
+  Doc,
   Text,
   Paragraph,
   Heading.configure({ level: 5 }),
@@ -44,7 +41,6 @@ const extensions = [
   TextAlign.configure({ bubble: true }),
   Image,
   Iframe,
-  CodeBlockLowlight.configure({ lowlight }),
   Strike,
   Table.configure({ resizable: true }),
   Color,
