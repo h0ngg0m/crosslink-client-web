@@ -4,6 +4,7 @@ import LoginView from '@/views/auth/LoginView.vue'
 import NaverCallback from '@/views/auth/NaverCallback.vue'
 import GoogleCallback from '@/views/auth/GoogleCallback.vue'
 import BoxList from '@/views/box/BoxListView.vue'
+import CreateBoard from '@/views/board/CreateBoard.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -31,6 +32,10 @@ const router = createRouter({
     {
       path: '/boxes',
       component: BoxList
+    },
+    {
+      path: '/board/create',
+      component: CreateBoard
     }
   ]
 })

@@ -13,9 +13,17 @@
     "format": "prettier --write src/"
   },
   "dependencies": {
+    "@tiptap/extension-code-block-lowlight": "^2.1.13",
+    "@tiptap/starter-kit": "^2.1.13",
+    "@tiptap/vue-3": "^2.1.13",
     "@vueuse/core": "^10.7.1",
     "axios": "^1.6.2",
     "dayjs": "^1.11.10",
+    "element-tiptap": "^2.2.1",
+    "element-tiptap-vue3-fixed": "^1.2.3",
+    "highlight.js": "^11.9.0",
+    "lodash": "^4.17.21",
+    "lowlight": "^2.9.0",
     "pinia": "^2.1.7",
     "pinia-plugin-persistedstate": "^3.2.1",
     "qs": "^6.11.2",
