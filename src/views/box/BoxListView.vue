@@ -71,39 +71,22 @@
 </template>
 <script setup lang="ts">
 import BoxList from '@/views/box/BoxList.vue'
+import { computedAsync } from '@vueuse/core'
+import { getApi } from '@/utils/api'
+import type { Box } from '@/definitions/model'
+import { defaultBoxes } from '@/definitions/default'
+import type { Boxes } from '@/definitions/type'
 
-const boxes = {
-  서울: [
-    {
-      id: 1,
-      name: '서울 박스 1'
-    },
-    {
-      id: 2,
-      name: '서울 박스 1'
-    },
-    {
-      id: 3,
-      name: '서울 박스 3'
-    }
-  ],
-  부산: [],
-  대구: [],
-  인천: [],
-  광주: [],
-  대전: [],
-  울산: [],
-  세종: [],
-  경기: [],
-  강원: [],
-  충북: [],
-  충남: [],
-  전북: [],
-  전남: [],
-  경북: [],
-  경남: [],
-  제주: []
-}
+const boxes = computedAsync(async (): Promise<Boxes> => {
+  const response = await getApi<Box[]>('/api/v1/boxes')
+  const _boxes = defaultBoxes()
 
-// TODO: 박스 목록 api 사용 / 캐싱 고려
+  if (response.data.data) {
+    response.data.data.forEach((box) => {
+      _boxes[box.city].push(box)
+    })
+  }
+
+  return _boxes
+}, defaultBoxes())
 </script>
