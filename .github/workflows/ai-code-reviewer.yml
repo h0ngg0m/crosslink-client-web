@@ -1,15 +1,19 @@
-name: 'ai-code-reviewer'
+name: ai-code-reviewer
+
+permissions:
+  contents: read
+  pull-requests: write
+
 on:
   pull_request:
+    types: [opened, reopened, synchronize]
+
 jobs:
-  code-review:
+  test:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - uses: gvasilei/AutoReviewer@0.4
+      - uses: anc95/ChatGPT-CodeReview@main
         env:
-          NODE_OPTIONS: '--experimental-fetch'
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          openai_api_key: ${{ secrets.OPENAI_API_KEY }}
-          exclude_files: '*.json, *.md, *.yml'
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          LANGUAGE: Korean
