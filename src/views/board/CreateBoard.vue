@@ -1,4 +1,20 @@
 <template>
+  <v-container>
+    <v-row>
+      <v-col cols="12" sm="6">
+        <v-select
+          :items="categories"
+          label="카테고리"
+          v-model="selectedCategory"
+          outlined
+        ></v-select>
+      </v-col>
+
+      <v-col cols="12" sm="6">
+        <v-text-field label="제목" v-model="title" outlined></v-text-field>
+      </v-col>
+    </v-row>
+  </v-container>
   <el-tiptap :content="content" :extensions="extensions" output="json" height="500px" />
 </template>
 
@@ -13,6 +29,7 @@ import {
   Bold,
   Underline,
   FontSize,
+  FontFamily,
   Italic,
   TextAlign,
   Image,
@@ -21,7 +38,6 @@ import {
   Table,
   Color,
   Highlight,
-  Fullscreen,
   SelectAll,
   History,
   Link,
@@ -37,6 +53,7 @@ const extensions = [
   Bold.configure({ bubble: true }),
   Underline.configure({ bubble: true, menubar: false }),
   FontSize,
+  FontFamily,
   Italic,
   TextAlign.configure({ bubble: true }),
   Image,
@@ -45,7 +62,6 @@ const extensions = [
   Table.configure({ resizable: true }),
   Color,
   Highlight,
-  Fullscreen,
   SelectAll,
   History,
   Link.configure({ bubble: true }),
@@ -57,4 +73,7 @@ const content = ref(`
   <h1>Heading</h1>
   <p>This Editor is awesome!</p>
 `)
+
+const category = ref('')
+const title = ref('')
 </script>
